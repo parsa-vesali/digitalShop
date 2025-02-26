@@ -17,8 +17,9 @@ const ProductItem = async (props: { product: any }) => {
       <CardHeader>
         <div className="relative flex justify-center w-full h-40">
           <Image
-            src={product?.images[0]?.image || './assets/no-img.png'}
-            alt="product"
+          src={'/image/mock/3.webp'}
+            // src={product?.images[0]?.image}
+            alt={product.name}
             fill
             className=" rounded-t-lg object-cover"
           />

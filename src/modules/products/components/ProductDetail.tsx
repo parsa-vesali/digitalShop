@@ -5,12 +5,13 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui';
+import { ProductsWithImages } from '@/types';
 import { ShoppingCart } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 
-const ProductDetail = (product: any) => {
+const ProductDetail = (product: ProductsWithImages) => {
   return (
     <div className="container mx-auto py-10">
       <Card className="max-w-3xl mx-auto">
@@ -40,7 +41,7 @@ const ProductDetail = (product: any) => {
               <p className="text-xl">تومان {product?.price}</p>
               <p className="text-gray-700">تعداد{product?.quantity}</p>
               <p className="mt-2 text-sm">{product?.category}</p>
-              <p className="text-gray-600">{product?.deccription}</p>
+              <p className="text-gray-600">{product?.description}</p>
 
               <Button className="my-5">
                 <ShoppingCart />

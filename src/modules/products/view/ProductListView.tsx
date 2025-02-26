@@ -1,10 +1,12 @@
 import React from 'react';
 import ProductList from '../components/ProductList';
+import { getProducts } from '../services';
 
-const ProductListView = () => {
+const ProductListView = async () => {
+  const products = await getProducts()
   return (
     <div>
-      <ProductList />
+      <ProductList products={products} />
     </div>
   );
 };
