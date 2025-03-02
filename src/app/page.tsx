@@ -1,5 +1,9 @@
+import HeaderSlider from "@/components/HeaderSlider";
+
 export default function Home() {
   return (
-    <div className=""></div>
+    <div className="">
+      <HeaderSlider />
+    </div>
   );
 }
