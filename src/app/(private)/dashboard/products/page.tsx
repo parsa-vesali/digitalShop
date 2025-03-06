@@ -1,9 +1,12 @@
+import ProductDashBoardView from '@/modules/products/view/ProductDashBoardView'
 import React from 'react'
 
-const page = () => {
+const DashboardProductPage = () => {
   return (
-    <div>page</div>
+    <div>
+      <ProductDashBoardView />
+    </div>
   )
 }
 
-export default page
+export default DashboardProductPage
