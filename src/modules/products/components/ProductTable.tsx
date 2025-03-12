@@ -1,15 +1,19 @@
+'use client'
 import { Button } from '@/components/ui'
 import { Table, TableBody, TableCell, TableFooter, TableHead, TableHeader, TableRow } from '@/components/ui/table'
 import { Edit, Trash2 } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
-import { getProducts } from '../services'
+import { deleteProduct, getProducts } from '../services'
 
-const ProductTable = async (props: {
+const ProductTable =(props: {
   products: Awaited<ReturnType<typeof getProducts>>
 }) => {
   const { products } = props
+  const onDeleteProduct = (id : string)=> {
+    deleteProduct(id)
+  }
   return (
     <div className='border border-gray-200 rounded-lg shadow-md mt-4'>
       <div className="flex justify-between items-center p-4 bg-gray-100">
@@ -54,7 +58,7 @@ const ProductTable = async (props: {
                       <Edit />
                     </Link>
                   </Button>
-                  <Button variant={'ghost'}>
+                  <Button variant={'ghost'} onClick={()=> onDeleteProduct(product.id)}>
                     <Trash2 />
                   </Button>
                 </div>
@@ -64,7 +68,7 @@ const ProductTable = async (props: {
         </TableBody>
         <TableFooter>
           <TableRow>
-            <TableCell colSpan={5}>total</TableCell>
+            <TableCell colSpan={5}>total : {products.length}</TableCell>
           </TableRow>
         </TableFooter>
       </Table>

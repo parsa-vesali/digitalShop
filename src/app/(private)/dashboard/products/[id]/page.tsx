@@ -1,8 +1,15 @@
+import { getProductsById } from '@/modules/products/services';
+import ProductDetailView from '@/modules/products/view/ProductDetailView'
+import { ProductsWithImages } from '@/types';
 import React from 'react'
 
-const page = () => {
+const page = async ({ params }: { params: Promise<{ id: string }> }) => {
+  const data = await params;
+  const { id } = data;
   return (
-    <div>page</div>
+    <div>
+      <ProductDetailView id={id} />
+    </div>
   )
 }
 
